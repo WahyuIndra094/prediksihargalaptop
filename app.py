@@ -15,9 +15,7 @@ image = Image.open('Picture.png')
 # Credits
 with st.container():
    
-    st.title('Laptops Prices Prediction\n')
-    st.write('- <p style="font-size:26px;">This is a prediciton model made to predict the prices of laptops based on their featurs ,A more comprehansive analysis is available on my Github</p>',
-    unsafe_allow_html=True)
+    st.title('Prediksi Harga Laptop\n')
     coll1, coll2, coll3 = st.columns([3,6,1])
 
     with coll1:
@@ -40,7 +38,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 # Inputs
 
 # Brand & Type
-st.write('- <p style="font-size:26px;"> Laptop Brand & Type</p>',unsafe_allow_html=True)
+st.write('- <p style="font-size:26px;"> Merk & Tipe Laptop</p>',unsafe_allow_html=True)
 Company = st.selectbox('Company',df['Company'].unique())
 TypeName = st.selectbox('Type',df[df['Company']== Company].groupby('TypeName')['TypeName'].value_counts().index)
 WeightKG = st.selectbox('Weight?', np.sort(df[(df['Company']== Company)&(df['TypeName'] ==TypeName)].groupby('WeightKG')['WeightKG'].count().index))
