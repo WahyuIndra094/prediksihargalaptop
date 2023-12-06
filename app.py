@@ -39,8 +39,8 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 # Brand & Type
 st.write('- <p style="font-size:26px;"> Merk & Tipe Laptop</p>',unsafe_allow_html=True)
-Company = st.selectbox('Company',df['Company'].unique())
-TypeName = st.selectbox('Type',df[df['Company']== Company].groupby('TypeName')['TypeName'].value_counts().index)
+Company = st.selectbox('Merk',df['Merk'].unique())
+TypeName = st.selectbox('Tipe',df[df['Merk']== Company].groupby('TypeName')['TypeName'].value_counts().index)
 WeightKG = st.selectbox('Weight?', np.sort(df[(df['Company']== Company)&(df['TypeName'] ==TypeName)].groupby('WeightKG')['WeightKG'].count().index))
 # Screen Inputs
 st.write('- <p style="font-size:26px;"> Screen Specs</p>',unsafe_allow_html=True)
